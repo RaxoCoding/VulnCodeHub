@@ -1,0 +1,20 @@
+# VULN NAME
+name: Python MySQL SQLi
+
+# VULN CWE ID
+cwe: 89
+
+# VULN DESCRIPTION
+description: |
+  SQL injections in Python occur by building queries by hand, using raw strings. When users build their queries manually, there is a high chance of introducing SQL injections.
+  This occurs when using the database modules directly. For example, if you are using the mysql module, use the following code, you may be vulnerable to a MySQL injection attack by not sanitizing or checking the customer_id value.
+
+# VULN CODE SNIPPET
+code: |
+  import mysql.connector
+
+  def get_user(customer_id):
+    mydb = mysql.connector.connect(...)
+    mycursor = mydb.cursor()
+    mycursor.execute(f"SELECT * FROM customers WHERE id={customer_id}")
+    ...
