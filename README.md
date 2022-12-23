@@ -31,10 +31,11 @@ name: PHP RCE
 # VULN CWE ID
 cwe: 94
 
-# VULN DESCRIPTION
-description: The vulnerable code uses the function exec() with a user supplied parameter $_GET["cmd"], and so user's can execute any desired command. 
+# VULN DESCRIPTION (MARKDOWN)
+description: |
+    The vulnerable code uses the function *exec()* with a user supplied parameter *$_GET["cmd"]*, and so user's can execute any desired command. 
 
-# VULN CODE SNIPPET
+# VULN CODE SNIPPET (MARKDOWN)
 code: |
   <?php
     echo exec($_GET["cmd"]);
